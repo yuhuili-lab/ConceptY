@@ -67,11 +67,18 @@ body::after {
   }
 }
   
-  @keyframes fade-in-y-circle {
+@keyframes fade-in-y-circle {
   to {
     opacity: 1;
   }
 }
+  
+@keyframes fade-out-y-circle {
+  to {
+    opacity: 0;
+  }
+}
+  
   
 @keyframes draw-y {
   to {
@@ -111,7 +118,9 @@ body::after {
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
   $(document).ready(function() {
-    setTimeout(function() {$("#y-circle-path").css("display","none")}, 4000);
+    setTimeout(function() {$("#y-circle-path").css("opacity","1")}, 3000);
+    setTimeout(function() {$("#y-circle-path").css("animation","fade-out-y-circle 0.5s linear forwards")}, 8000);
+    setTimeout(function() {$("#y-circle-path").css("display","none")}, 8500);
   })
 </script>
 </head>
