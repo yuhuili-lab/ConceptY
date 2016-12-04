@@ -1,0 +1,109 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+body {
+  background-color: rgba(0,0,0,0.4);
+}
+body::after {
+  content: "";
+  background-image: url(6.jpg);
+  background-size: contain;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+#y-logo-container {
+  width: 50%;
+  height: 50%;
+  margin: 0 auto;
+  padding-top: 150px;
+}
+#y-logo-path-1, #y-logo-path-1-glow, #y-logo-path-2, #y-logo-path-2-glow {
+  fill: none;
+  stroke: white;
+  stroke-linecap: round;
+  stroke-width: 2px;
+  opacity: 0;
+}
+#y-logo-background-path {
+  fill: white;
+  fill-opacity: 0;
+}
+#y-logo-path-1, #y-logo-path-1-glow {
+  stroke-dasharray: 515;
+  stroke-dashoffset: 515;
+}
+#y-logo-path-2, #y-logo-path-2-glow {
+  stroke-dasharray: 515;
+  stroke-dashoffset: 515;
+}
+#y-logo-path-1, #y-logo-path-2 {
+  filter: url(#y-logo-blur-filter);
+}
+  
+#y-circle-path {
+  fill: white;
+  opacity:0;
+}
+
+@keyframes fade-in-y {
+  to {
+    opacity: 1;
+  }
+}
+  
+@keyframes fade-in-y-circle {
+  to {
+    opacity: 1;
+  }
+}
+  
+@keyframes fade-out-y-circle {
+  to {
+    opacity: 0;
+  }
+}
+  
+  
+@keyframes draw-y {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fill-y {
+  0% {
+   fill-opacity: 0;
+  }
+  15% {
+    fill-opacity: 0.4;
+  }
+  35% {
+    fill-opacity: 0;
+  }
+  40% {
+    fill-opacity: 0;
+  }
+  55% {
+    fill-opacity: 0.7;
+  }
+  75% {
+    fill-opacity: 0;
+  }
+  80% {
+    fill-opacity: 0;
+  }
+  100% {
+    fill-opacity: 1;
+  }
+}
+  
+}
