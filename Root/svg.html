@@ -36,12 +36,12 @@ body::after {
   stroke-linecap: round;
   stroke-width: 2px;
   opacity: 0;
-  animation: draw-y 3s linear forwards, fade-in-y 2.5s ease-out forwards;/*animation: dash 50s linear alternate infinite;*/
+  animation: draw-y 3s linear 1s forwards, fade-in-y 2.5s ease-out 1s forwards;/*animation: dash 50s linear alternate infinite;*/
 }
 #y-logo-background-path {
   fill: white;
   fill-opacity: 0;
-  animation: fill-y 3.5s ease-out forwards;
+  animation: fill-y 3.5s ease-out 1s forwards;
 }
 #y-logo-path-1, #y-logo-path-1-glow {
   stroke-dasharray: 515;
@@ -54,8 +54,20 @@ body::after {
 #y-logo-path-1, #y-logo-path-2 {
   filter: url(#y-logo-blur-filter);
 }
+  
+#y-circle-path {
+  fill: white;
+  opacity:0;
+  animation: fade-in-y-circle 3s linear forwards;
+}
 
 @keyframes fade-in-y {
+  to {
+    opacity: 1;
+  }
+}
+  
+  @keyframes fade-in-y-circle {
   to {
     opacity: 1;
   }
@@ -93,28 +105,31 @@ body::after {
     fill-opacity: 1;
   }
 }
-
+  
 }
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script>
   $(document).ready(function() {
-    console.log("1");
+    setTimeout(function() {$("#y-circle-path").css("display","none")}, 4000);
   })
 </script>
 </head>
 
 <body>
 <div id="y-logo-container">
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 283 255.2">
-    <filter id="y-logo-blur-filter" x="-2" y="-2" width="200" height="200">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600">
+   <filter id="y-logo-blur-filter" x="-2" y="-2" width="200" height="200">
       <feGaussianBlur in="SourceGraphic" stdDeviation="2" />
     </filter>
-    <path id="y-logo-path-1-glow" d="M 138.9 255.2 181.8 255.2 181.8 150.7 283 0 182 0 143.5 75"></path>
-    <path id="y-logo-path-1" d="M 138.9 255.2 181.8 255.2 181.8 150.7 283 0 182 0 143.5 75"></path>
-    <path id="y-logo-path-2-glow" d="M 143.5 75 103.2 0 0 0 95.8 151.2 96 255.2 138.9 255.2"></path>
-    <path id="y-logo-path-2" d="M 143.5 75 103.2 0 0 0 95.8 151.2 96 255.2 138.9 255.2"></path>
-    <path id="y-logo-background-path" d="M 138.9 255.2 181.8 255.2 181.8 150.7 283 0 182 0 143.5 75 143.5 75 103.2 0 0 0 95.8 151.2 96 255.2 z"></path>
+    <path id="y-logo-path-1-glow" d="M297.4 427.6h42.9V323.1l101.2-150.7h-101l-38.5 75"/>
+    <path id="y-logo-path-1" d="M297.4 427.6h42.9V323.1l101.2-150.7h-101l-38.5 75"/>
+    <path id="y-logo-path-2-glow" d="M302 247.4l-40.3-75H158.5l95.8 151.2 0.2 104h42.9"/>
+    <path id="y-logo-path-2" d="M302 247.4l-40.3-75H158.5l95.8 151.2 0.2 104h42.9"/>
+    <path id="y-logo-background-path" d="M297.4 427.6h42.9V323.1l101.2-150.7h-101l-38.5 75 0 0 -40.3-75H158.5l95.8 151.2 0.2 104H297.4z"/>
+    <path id="y-circle-path" d="M300 583.2c135.5 0 262-118.3 262-264.3 0-10.4 0.1-18.9 10.5-18.9s10.7 8.5 10.7 18.9C583.1 464.9 456.4 583.2 300 583.2z">
+      <animateTransform accumulate="none" additive="replace" attributeName="transform" calcMode="linear" dur="3s" from="360 300 300" repeatCount="indefinite" restart="always" to="0 300 300" type="rotate" fill="remove"/>
+    </path>
   </svg>
 </div>
 </body>
