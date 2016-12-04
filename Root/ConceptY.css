@@ -5,6 +5,7 @@ body, html {
   width: 100%;
   height: 100%;
   margin: 0;
+  overflow: scroll;
 }
 body {
   background-color: rgba(0,0,0,0.4);
@@ -22,9 +23,8 @@ body::after {
 }
 #y-logo-container {
   width: 50%;
-  height: 50%;
   margin: 0 auto;
-  padding-top: 150px;
+  padding-top: 50px;
 }
 #y-logo-path-1, #y-logo-path-1-glow, #y-logo-path-2, #y-logo-path-2-glow {
   fill: none;
